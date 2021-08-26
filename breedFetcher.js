@@ -5,10 +5,14 @@ const fetchBreedDescription = (breedName, callback) => {
     const data = JSON.parse(body);
     // console.log(data);
     // console.log(typeof data);
+    let desc = null;
+    let err = null;
     if (data.length === 0) {
-      console.log("Error: Not a cat!");
+      err = "Error: Not a cat species!";
+      callback(err, desc);
     } else {
-      console.log(data[0].description);
+      desc = data[0].description;
+      callback(err, desc);
     }
     
   });
